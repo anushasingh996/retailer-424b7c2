@@ -21,4 +21,5 @@ spec:
   owner: "retail-team"
   providesApis:
     - "retailer"
+  system: "order"  
   subcomponentOf: "order"   
