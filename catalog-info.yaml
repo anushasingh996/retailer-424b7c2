@@ -21,3 +21,4 @@ spec:
   owner: "guest"
   providesApis:
     - "retailer"
+  subcomponentOf: "order"   
