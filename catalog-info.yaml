@@ -1,0 +1,23 @@
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "retailer"
+  description: "This is a service to handle retailers."
+  links:
+    - url: https://api-retailer-demobackstage1.empcbr.thoughtworks-labs.net/swagger-ui.html
+      title: retailer
+      icon: dashboard
+  annotations:
+    circleci.com/project-slug: github/platform-dx/retailer-424b7c2
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug:  platform-dx/retailer-424b7c2
+    sonarqube.org/project-key: "retailer"
+    backstage.io/kubernetes-label-selector: "app=retailer"
+    backstage.io/adr-location: docs/adrs/
+spec:
+  type: service
+  lifecycle: experimental
+  owner: "guest"
+  providesApis:
+    - "retailer"

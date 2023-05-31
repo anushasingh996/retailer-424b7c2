@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "retailer"
+  description: "This is a service to handle retailers."
+spec:
+  type: openapi
+  lifecycle: production
+  owner:  "guest"
+  definition:
+    $text: https://github.com/platform-dx/retailer-424b7c2/blob/main/open-api.yaml

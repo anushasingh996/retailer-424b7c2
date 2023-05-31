@@ -1,0 +1,9 @@
+
+site_name: "retailer"
+site_description: "This is a service to handle retailers."
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

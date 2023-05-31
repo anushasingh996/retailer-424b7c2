@@ -1,0 +1,65 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: retailer-ingress
+  labels:
+    app: retailer
+    backstage.io/kubernetes-id: retailer 
+spec:
+  rules:
+    - host: api-retailer-demobackstage1.empcbr.thoughtworks-labs.net
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: retailer
+                port: 
+                  number: 80
+  tls:
+  - hosts:
+    - api-retailer-demobackstage1.empcbr.thoughtworks-labs.net
+    secretName: letencryptkey
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: retailer
+  labels:
+    app: retailer
+    backstage.io/kubernetes-id: retailer
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: retailer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retailer
+  labels:
+    app: retailer
+    backstage.io/kubernetes-id: retailer
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 5
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: retailer
+  template:
+    metadata:
+      labels:
+        app: retailer
+    spec:
+      containers:
+      - name: retailer
+        image: 626109959667.dkr.ecr.us-east-1.amazonaws.com/retailer:{image-tag}
+        ports:
+        - containerPort: 8080
