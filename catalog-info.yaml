@@ -34,4 +34,4 @@ spec:
   lifecycle: production
   owner:  "guest"
   definition:
-    $text: https://github.com/platform-dx/retailer-424b7c2/blob/main/open-api.yaml
+    $text: https://github.com/anushasingh996/order-4c56331/blob/main/open-api.yaml
