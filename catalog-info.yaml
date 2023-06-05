@@ -24,8 +24,8 @@ spec:
   system: "sales"  
   subcomponentOf: "order"   
   
-  ---
-  apiVersion: backstage.io/v1alpha1
+---
+apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
   name: "retailer"
